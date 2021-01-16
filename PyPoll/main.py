@@ -25,11 +25,12 @@ with open(pypoll_csv) as csvfile:
         else: 
             candidates[row[2]] = candidates[row[2]] + 1 
 
-print(f'- - - - - - - - - - - - - - - - - - - - - - - -')
-print(f'Election Results ')
-print(f'- - - - - - - - - - - - - - - - - - - - - - - -')
-print(f'Total Votes:{str(totalvotes)}')
-print(f'- - - - - - - - - - - - - - - - - - - - - - - -')
+f = open("pypoll.txt", "a")
+print(f'- - - - - - - - - - - - - - - - - - - - - - - -', file =f)
+print(f'Election Results ', file=f)
+print(f'- - - - - - - - - - - - - - - - - - - - - - - -', file=f)
+print(f'Total Votes:{str(totalvotes)}', file=f)
+print(f'- - - - - - - - - - - - - - - - - - - - - - - -', file=f)
 
 
 
@@ -40,10 +41,10 @@ for key, value in candidates.items():
     
    
    
-#prints candidate and their vote count 
-    print(f"{key}: {round((value/totalvotes)*100, 2)}% ({value})")
-print(f'- - - - - - - - - - - - - - - - - - - - - - - -')
+   
+    print(f"{key}: {round((value/totalvotes)*100, 2)}% ({value})", file=f)
+print(f'- - - - - - - - - - - - - - - - - - - - - - - -', file=f)
 
-print(f'Winner Candidate: {str(winnercandidate)}')
-print(f'- - - - - - - - - - - - - - - - - - - - - - - -')
-
+print(f'Winner Candidate: {str(winnercandidate)}', file=f)
+print(f'- - - - - - - - - - - - - - - - - - - - - - - -', file=f)
+f.close()

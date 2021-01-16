@@ -43,23 +43,22 @@ with open(pybank_csv) as csvfile:
             totalchange = totalchange + change
 
 
+    f = open("pybank.txt", "a")
 
+    print(f'- - - - - - - - - - - - - - - - - - - - -', file= f)
+    print(f"Financial Analysis", file=f)
+    print(f'- - - - - - - - - - - - - - - - - - - - - ', file = f)
 
-    
-    print(f'- - - - - - - - - - - - - - - - - - - - -')
-    print(f"Financial Analysis")
-    print(f'- - - - - - - - - - - - - - - - - - - - - ')
-
-    print(f"Total Months: {str(totalmonths)}")
-    print(f"Total Profits: {str(totalprofits)}")
+    print(f"Total Months: {str(totalmonths)}", file = f)
+    print(f"Total Profits: {str(totalprofits)}", file = f)
     
     AverageChange = round(totalchange/(totalmonths-1),2)
 
 
-    print(f"Average Change: ${str(AverageChange)}")
-    print(f"Greatest Increase in Profits: {maxmonth} $({str(maxchange)})")     
-    print(f"Greatest Decrease in Profits: {minmonth} $({str(minchange)})")    
+    print(f"Average Change: ${str(AverageChange)}", file = f)
+    print(f"Greatest Increase in Profits: {maxmonth} $({str(maxchange)})", file = f)     
+    print(f"Greatest Decrease in Profits: {minmonth} $({str(minchange)})", file = f)    
 
-
+    f.close()
 
 
